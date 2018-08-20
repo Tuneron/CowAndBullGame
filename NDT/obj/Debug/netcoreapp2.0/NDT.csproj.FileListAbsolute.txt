@@ -1,0 +1,11 @@
+C:\Users\Alex\source\repos\NDT\NDT\bin\Debug\netcoreapp2.0\NDT.deps.json
+C:\Users\Alex\source\repos\NDT\NDT\bin\Debug\netcoreapp2.0\NDT.runtimeconfig.json
+C:\Users\Alex\source\repos\NDT\NDT\bin\Debug\netcoreapp2.0\NDT.runtimeconfig.dev.json
+C:\Users\Alex\source\repos\NDT\NDT\bin\Debug\netcoreapp2.0\NDT.dll
+C:\Users\Alex\source\repos\NDT\NDT\bin\Debug\netcoreapp2.0\NDT.pdb
+C:\Users\Alex\source\repos\NDT\NDT\obj\Debug\netcoreapp2.0\NDT.csprojResolveAssemblyReference.cache
+C:\Users\Alex\source\repos\NDT\NDT\obj\Debug\netcoreapp2.0\NDT.csproj.CoreCompileInputs.cache
+C:\Users\Alex\source\repos\NDT\NDT\obj\Debug\netcoreapp2.0\NDT.AssemblyInfoInputs.cache
+C:\Users\Alex\source\repos\NDT\NDT\obj\Debug\netcoreapp2.0\NDT.AssemblyInfo.cs
+C:\Users\Alex\source\repos\NDT\NDT\obj\Debug\netcoreapp2.0\NDT.dll
+C:\Users\Alex\source\repos\NDT\NDT\obj\Debug\netcoreapp2.0\NDT.pdb
