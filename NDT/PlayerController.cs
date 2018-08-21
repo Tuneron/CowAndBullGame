@@ -9,10 +9,14 @@ namespace NDT
     {
         private List<Player> players;
 
-        public PlayerController(int numberLenght, int quantityOfPlayers, String[] playerNames)
+        public PlayerView playerView;
+
+        public PlayerController(int numberLenght, int quantityOfPlayers)
         {
-            for (int i = 0; i < quantityOfPlayers; i++)
-                this.players.Add(new Player(playerNames[i], numberLenght));
+            this.playerView = new PlayerView();
+
+            String[] names = new String[quantityOfPlayers];
+            this.playerView.RegisterUsers(quantityOfPlayers).CopyTo(names, 0);
         }
 
     }

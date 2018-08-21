@@ -12,6 +12,7 @@ namespace NDT
         private static void Main()
         {
             GameController gameController = new GameController();
+            gameController.Run();
         }
     }
 }
