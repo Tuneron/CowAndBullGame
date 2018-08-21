@@ -6,46 +6,41 @@ namespace NDT
 {
     class GameView
     {
-        public String[] PlayerNames { get; set; }
+        public GameView() {}
 
-        public int QuantityOfPlayers { get; set; }
-
-        public int NumberLenght { get; set; }
-        public GameView()
+        public int RegisterLenghtNumber()
         {
-            Console.Write("Write lenght of number (from 4 to 8) = ");
+            int NumberLenght;
             do
             {
-                this.NumberLenght = int.Parse(Console.ReadLine());
-                Console.Write("test {0}", this.NumberLenght);
+                Console.Write("Write lenght of number (from 4 to 8) = ");
+                NumberLenght = int.Parse(Console.ReadLine());
+                Console.WriteLine();
             }
-            while (!(this.NumberLenght >= 4 && this.NumberLenght <= 8));
-            Console.WriteLine();
+            while (!(NumberLenght >= 4 && NumberLenght <= 8));
+            Console.Clear();
+            return NumberLenght; 
+        }
 
-            Console.Write("Write quantity of players (from 1 to 4) = ");
+        public int RegisterQuantityOfPlayers()
+        {
+            int QuantityOfPlayers;
             do
             {
-                this.QuantityOfPlayers = int.Parse(Console.ReadLine());
+                Console.Write("Write quantity of players (from 1 to 4) = ");
+                QuantityOfPlayers = int.Parse(Console.ReadLine());
+                Console.WriteLine();
             }
-            while (!(this.QuantityOfPlayers > 0 && this.QuantityOfPlayers < 5));
-            Console.WriteLine();
-
-            this.PlayerNames = new String[QuantityOfPlayers];
-
-            Console.WriteLine("Write name of players also last name is yours.");
-
-            for (int i = 0; i < this.QuantityOfPlayers; i++)
-            {
-                Console.Write("Write name of {0} palyer : ", i + 1);
-                this.PlayerNames[i] = Console.ReadLine();
-            }
+            while (!(QuantityOfPlayers > 0 && QuantityOfPlayers < 5));
+            Console.Clear();
+            return QuantityOfPlayers;
         }
 
         public void Line(String symbol) {for (int i = 0; i < 120; i++) Console.Write(symbol);}
-        public void Sides(String symbol, int lenght)
+        public void Sides(String symbol, int lenght, int quantityOfPlayers)
         {
             Console.Write(symbol);
-            for (int j = 0; j < this.QuantityOfPlayers; j++)
+            for (int j = 0; j < quantityOfPlayers; j++)
             {
                 for (int i = 0; i < lenght + 4; i++)
                     Console.Write(" ");
@@ -65,7 +60,7 @@ namespace NDT
             Console.Write(symbol);
         }
 
-        public void Head (int[] place, int[] inPlace, int[] outOfPlace)
+        /*public void Head (int[] place, int[] inPlace, int[] outOfPlace, int)
         {
             getMaxValue getMaxLenght = (names, lenght) =>
             {
@@ -110,5 +105,6 @@ namespace NDT
             Line("#");
             //Console.WriteLine();
         }
+        */
     }
 }
