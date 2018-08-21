@@ -9,7 +9,11 @@ namespace NDT
     {
         private Random rnd;
 
-        public String Name { get; }
+        public String Name
+        {
+            get { return this.Name; }
+            set { this.Name = value; }
+        }
 
         private int[] Number { get; set;}
 

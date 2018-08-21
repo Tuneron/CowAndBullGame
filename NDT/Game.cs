@@ -14,6 +14,8 @@ namespace NDT
 
         public int NumberLenght { get; set; }
 
+        public int TableProportions { get; set; }
+
         private int[,] numbers;
 
         public Game(int numberLenght, int quantityOfPlayers)
@@ -26,7 +28,7 @@ namespace NDT
             this.numbers = new int[this.QuantityOfPlayers, this.NumberLenght];
         }
 
-        private int[] GenerateNumber()
+        private int[] GenerateNumbers()
         {
             generateNumber randomNumber = lenght =>
             {
@@ -39,12 +41,28 @@ namespace NDT
             return randomNumber(this.NumberLenght);
         }
 
+        public void SetProportions(String[] PlayerNames)
+        {
+            int max = 0;
+
+            for (int i = 0; i < PlayerNames.Length; i++)
+            {
+                if (max < PlayerNames[i].Length)
+                    max = PlayerNames[i].Length;
+            }
+
+            if (max >= this.NumberLenght)
+                this.TableProportions = max;
+            else
+                this.TableProportions = this.NumberLenght;
+        }
+
         public void start()
         {
             for (int i = 0; i < this.QuantityOfPlayers; i++)
             {
                 int[] number = new int[NumberLenght];
-                number = GenerateNumber();
+                number = GenerateNumbers();
 
                 for (int j = 0; j < NumberLenght; j++)
                 {

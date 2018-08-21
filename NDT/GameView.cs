@@ -60,51 +60,31 @@ namespace NDT
             Console.Write(symbol);
         }
 
-        /*public void Head (int[] place, int[] inPlace, int[] outOfPlace, int)
+        public void Head (String[] PlayerNames, int Proportions, int[] PlayerPlace)
         {
-            getMaxValue getMaxLenght = (names, lenght) =>
-            {
-                int max = 0;
-
-                for (int i = 0; i < this.QuantityOfPlayers; i++)
-                {
-                    if (max < this.PlayerNames[i].Length)
-                        max = this.PlayerNames[i].Length;
-                    Console.WriteLine(max);
-                }
-
-                if (max > this.NumberLenght)
-                    return max;
-                else
-                    return NumberLenght;
-            };
-
-            int columnWight = 16;
-
-            if (!(getMaxLenght(this.PlayerNames, this.NumberLenght) <= (16 + NumberLenght)))
-                columnWight = getMaxLenght(this.PlayerNames, this.NumberLenght);
-
             Line("#");
-            Sides("#", columnWight);
+            Sides("#", Proportions, PlayerNames.Length);
             Console.Write("#");
-            for (int i = 0; i < this.QuantityOfPlayers; i++)
-            Parameter(columnWight, "#", this.PlayerNames[i], place[i]);
+            for (int i = 0; i < PlayerNames.Length; i++)
+            Parameter(Proportions, "#", PlayerNames[i], PlayerPlace[i]);
             Console.WriteLine();
-            Sides("#", columnWight);
-            Line("#");
-            Sides("#", columnWight);
-            Console.Write("#");
-            for (int i = 0; i < this.QuantityOfPlayers; i++)
-                Parameter(columnWight, "#", "in place", inPlace[i]);
-            Console.WriteLine();
-            Console.Write("#");
-            for (int i = 0; i < this.QuantityOfPlayers; i++)
-                Parameter(columnWight, "#", "out of place", outOfPlace[i]);
-            Console.WriteLine();
-            Sides("#", columnWight);
-            Line("#");
-            //Console.WriteLine();
         }
-        */
+
+        public void Body(int Proportions, int[] Place, int[] InPlace, int[] OutOfPlace)
+        {
+            Sides("#", Proportions, Place.Length);
+            Line("#");
+            Sides("#", Proportions, Place.Length);
+            Console.Write("#");
+            for (int i = 0; i < Place.Length; i++)
+                Parameter(Proportions, "#", "in place", InPlace[i]);
+            Console.WriteLine();
+            Console.Write("#");
+            for (int i = 0; i < Place.Length; i++)
+                Parameter(Proportions, "#", "out of place", OutOfPlace[i]);
+            Console.WriteLine();
+            Sides("#", Proportions, Place.Length);
+            Line("#");
+        }
     }
 }
