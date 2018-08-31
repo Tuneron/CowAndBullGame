@@ -28,22 +28,55 @@ namespace NDT
 
         public String[] GetPlayerNames()
         {
-            String[] names = new String[Players.ToArray().Length];
-            for (int i = 0; i < this.Players.Capacity; i++)
+            String[] names = new String[this.Players.Count];
+            for (int i = 0; i < this.Players.Count; i++)
             {
                 names[i] = Players[i].Name;
-                //Console.WriteLine(names[i]);
             }
             return names;
         }
 
         public int[] GetPlayerPlaces()
         {
-            int[] places = new int[Players.Capacity];
-            for (int i = 0; i < this.Players.Capacity; i++)
+            int[] places = new int[Players.Count];
+            for (int i = 0; i < this.Players.Count; i++)
                 places[i] = Players[i].Place;
             return places;
         }
 
+        public int[,] GetPlayerNumbers(int numberlenght)
+        {
+            int[,] data = new int[Players.Count, numberlenght];
+
+            for (int i = 0; i < this.Players.Count; i++)
+            {
+                for (int j = 0; j < numberlenght; j++)
+                {
+                    data[i, j] = this.Players[i].GetNumeric(j);
+                }
+            }
+
+            return data;
+        }
+
+        public void PlayersTurn(int parameterLenght, int proportions)
+        {
+            foreach (Player i in this.Players)
+                if (i.Place == 0)
+                i.Number = i.NumberToArray(playerView.EnterNumber(parameterLenght, proportions, i.Name));
+        }
+
+        public void Start()
+        {
+            foreach (Player i in this.Players)
+                i.GenerateNumber();
+        }
+
+        public void SetPlayersPlace(int[] value)
+        {
+            for (int i = 0; i < this.Players.Count; i++)
+                this.Players[i].Place = value[i];
+
+        }
     }
 }

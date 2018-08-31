@@ -37,12 +37,12 @@ namespace NDT
         }
 
         public void Line(String symbol) {for (int i = 0; i < 120; i++) Console.Write(symbol);}
-        public void Sides(String symbol, int lenght, int quantityOfPlayers)
+        public void Sides(String symbol, int proporties, int quantityOfPlayers)
         {
             Console.Write(symbol);
             for (int j = 0; j < quantityOfPlayers; j++)
             {
-                for (int i = 0; i < lenght + 4; i++)
+                for (int i = 0; i < proporties + 4; i++)
                     Console.Write(" ");
                 Console.Write(symbol);
             }
@@ -52,15 +52,13 @@ namespace NDT
         public void Parameter(int lenght, String symbol, String name, params int[] value)
         {
             int currencyLenght = lenght - name.Length - value.Length - 1;
-
             Console.Write("  {0} : ", name);
-
             for (int i = 0; i < value.Length; i++) { Console.Write("{0}", value[i]); }
             for (int i = 0; i < currencyLenght; i++) { Console.Write(" "); }
             Console.Write(symbol);
         }
 
-        public void Head (String[] PlayerNames, int Proportions, int[] PlayerPlace)
+        public void PlayerLogo(String[] PlayerNames, int Proportions, int[] PlayerPlace)
         {
             Line("#");
             Sides("#", Proportions, PlayerNames.Length);
@@ -68,12 +66,13 @@ namespace NDT
             for (int i = 0; i < PlayerNames.Length; i++)
             Parameter(Proportions, "#", PlayerNames[i], PlayerPlace[i]);
             Console.WriteLine();
+            Sides("#", Proportions, PlayerNames.Length);
+            Line("#");
         }
 
-        public void Body(int Proportions, int[] Place, int[] InPlace, int[] OutOfPlace)
+        public void GameInformation(int Proportions, int[] Place, int[] InPlace, int[] OutOfPlace)
         {
-            Sides("#", Proportions, Place.Length);
-            Line("#");
+
             Sides("#", Proportions, Place.Length);
             Console.Write("#");
             for (int i = 0; i < Place.Length; i++)
@@ -85,6 +84,19 @@ namespace NDT
             Console.WriteLine();
             Sides("#", Proportions, Place.Length);
             Line("#");
+        }
+
+        public void Rewarding (String[] names, int[] places)
+        {
+            for (int i = 0; i < names.Length; i++)
+                if (places[i] == i + 1)
+                {
+                    Console.Write("\nPlayer {0} has {1} place !", names[i], places[i]);
+                    if (i + 1 == 1)
+                        Console.Write(" Winner of this game !");
+                    Console.WriteLine();
+                }
+            Console.WriteLine("Thanks for playing !");
         }
     }
 }

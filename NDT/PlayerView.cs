@@ -20,5 +20,19 @@ namespace NDT
             }
             return names;
         }
+
+        public int EnterNumber(int ParameterLenght, int Proportions, String name)
+        {
+            Console.WriteLine();
+            int number = 0;
+
+            while (number.ToString().Length != ParameterLenght)
+            {
+                Console.Write(" Player {0} enter your number : ", name);
+                number = int.Parse(Console.ReadLine());
+            }
+
+            return number;
+        }
     }
 }

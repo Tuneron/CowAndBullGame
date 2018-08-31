@@ -28,12 +28,28 @@ namespace NDT
 
         public void Run()
         {
-            this.game.start();
-            this.gameView.Head(this.playerController.GetPlayerNames(),
-                this.game.TableProportions, this.playerController.GetPlayerPlaces());
+            this.game.Start();
+            this.playerController.Start();
 
-            //this.gameView.Body(this.game.TableProportions);
+            while (this.game.EndGame() == false)
+            {
+                this.playerController.SetPlayersPlace(this.game.AwardingAPlace(
+                    this.game.GetInPlace(this.playerController.GetPlayerNumbers(this.game.NumberLenght)),
+                    this.playerController.GetPlayerPlaces()));
 
+                this.gameView.PlayerLogo(this.playerController.GetPlayerNames(),
+                    this.game.TableProportions, this.playerController.GetPlayerPlaces());
+
+                this.gameView.GameInformation(this.game.TableProportions, this.playerController.GetPlayerPlaces(),
+                    this.game.GetInPlace(this.playerController.GetPlayerNumbers(this.game.NumberLenght)),
+                    this.game.GetOutOfPlace(this.playerController.GetPlayerNumbers(this.game.NumberLenght)));
+
+                this.playerController.PlayersTurn(this.game.NumberLenght, this.game.TableProportions);
+
+                Console.Clear();
+            }
+            this.gameView.Rewarding(this.playerController.GetPlayerNames(), this.playerController.GetPlayerPlaces());
+            Console.ReadKey();
         }
     }
 }
